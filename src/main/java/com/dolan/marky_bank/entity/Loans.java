@@ -7,22 +7,25 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@Table(name = "customer")
-public class Customer {
+@Table(name = "loans")
+public class Loans {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String email;
-    private String mobileNumber;
-    private String pwd;
-    private String role;
+    private Long loanNumber;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+    private LocalDate startDate;
+    private String loanType;
+    private Double totalLoan;
+    private Double amountPaid;
+    private Double outstandingAmount;
     @CreationTimestamp
     private LocalDateTime createdDateTime;
     @UpdateTimestamp

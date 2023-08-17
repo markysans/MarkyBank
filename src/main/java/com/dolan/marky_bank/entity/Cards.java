@@ -8,23 +8,26 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "customer")
-public class Customer {
+@Entity
+@Table(name = "cards")
+public class Cards {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String email;
-    private String mobileNumber;
-    private String pwd;
-    private String role;
+    private Long cardId;
+    private String cardNumber;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+    private String cardType;
+    private Double totalLimit;
+    private Double amountUsed;
+    private Double availableAmount;
     @CreationTimestamp
     private LocalDateTime createdDateTime;
     @UpdateTimestamp
     private LocalDateTime updatedDateTime;
+
 }

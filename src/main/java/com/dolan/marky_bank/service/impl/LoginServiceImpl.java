@@ -21,7 +21,9 @@ public class LoginServiceImpl implements LoginService {
 
     private Customer mapToCustomerEntity(CustomerRequest customerRequest) {
         Customer customer = new Customer();
+        customer.setName(customerRequest.getName());
         customer.setEmail(customerRequest.getEmail());
+        customer.setMobileNumber(customerRequest.getMobileNumber());
         customer.setPwd(passwordEncoder.encode(customerRequest.getPwd()));
         customer.setRole("USER");
         return customer;
