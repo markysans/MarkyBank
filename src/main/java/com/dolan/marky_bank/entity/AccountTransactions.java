@@ -8,7 +8,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,7 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(name = "account_transactions")
-public class AccountTransaction {
+public class AccountTransactions {
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2")

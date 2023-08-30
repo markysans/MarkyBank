@@ -28,7 +28,7 @@ public class SecurityConfig {
 //                      requests.anyRequest().authenticated(); //to authenticate all the request
 //                      requests.anyRequest().permitAll();
 //                      requests.anyRequest().denyAll(); //to deny all the request
-                    requests.requestMatchers("/myAccount", "/myBalance", "/myCards", "/myLoans").authenticated();
+                    requests.requestMatchers("/myAccount", "/myBalance", "/myCards", "/myLoans", "/user").authenticated();
                     requests.requestMatchers("/notices", "/contact", "/register").permitAll();
         })
         .formLogin(Customizer.withDefaults())

@@ -1,5 +1,6 @@
 package com.dolan.marky_bank.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,7 @@ public class Accounts {
     @GenericGenerator(name = "uuid2")
     private String accountNumber;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
     private String accountType;
     private String branchAddress;

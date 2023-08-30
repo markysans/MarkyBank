@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Table(name = "contact_messages")
 public class ContactMessages {
     @Id
-    @GeneratedValue(generator = "uuid2")
+    @GeneratedValue(generator = "SR"+"uuid2")
     @GenericGenerator(name = "uuid2")
     private String contactId;
     private String contactName;
