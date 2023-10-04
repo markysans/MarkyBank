@@ -5,6 +5,7 @@ import com.dolan.marky_bank.service.ContactService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class ContactController {
     private final ContactService contactService;
-    @GetMapping("/contact")
+    @PostMapping("/contact")
     public ResponseEntity<Object> getContactInquiryDetails(@RequestBody ContactMessages contactMessages) {
         return ResponseEntity.ok(contactService.saveContactMessages(contactMessages));
     }

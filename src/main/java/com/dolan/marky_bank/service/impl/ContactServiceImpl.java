@@ -14,6 +14,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public ContactMessages saveContactMessages(@RequestBody ContactMessages contactMessages) {
+        System.out.println(contactMessages.getContactId());
         return contactMessagesRepository.save(contactMessages);
     }
 }

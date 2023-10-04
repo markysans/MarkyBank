@@ -1,9 +1,6 @@
 package com.dolan.marky_bank.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,8 +17,8 @@ import java.time.LocalDateTime;
 @Table(name = "contact_messages")
 public class ContactMessages {
     @Id
-    @GeneratedValue(generator = "SR"+"uuid2")
-    @GenericGenerator(name = "uuid2")
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name="uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     private String contactId;
     private String contactName;
     private String contactEmail;
